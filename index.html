@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gali Surya Chaitanya | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #1a252f;
+            --accent-color: #2ecc71; /* Green accent for growth/data */
+            --bg-light: #f4f4f4;
+            --text-color: #333;
+            --white: #ffffff;
+            --status-progress: #e67e22;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(26, 37, 47, 0.9), rgba(26, 37, 47, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 85vh;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        #hero .hero-content {
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        #hero h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 10px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #27ae60;
+        }
+
+        /* Sections General */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--white);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: var(--bg-light);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .tags span {
+            display: inline-block;
+            background: #e1e8ed;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin: 5px 2px;
+        }
+
+        /* Projects Section */
+        #projects {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-info {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .status {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--status-progress);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        /* Leadership Section */
+        #leadership {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+        }
+
+        /* Certifications */
+        #certifications {
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .cert-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cert-list li {
+            background: var(--white);
+            margin: 10px 0;
+            padding: 15px;
+            border-left: 5px solid var(--accent-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="logo">Gali Surya Chaitanya</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Gali Surya Chaitanya</h1>
+            <h2>Data Science Student | 9.5 CGPA</h2>
+            <p>President of Data Science Club & Aspiring AI Engineer</p>
+            <a href="#projects" class="btn">View My Projects</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="container">
+            <p>I am a Computer Science student specializing in <strong>Data Science</strong> at Gayatri Vidya Parishad College of Engineering (A) with a current <strong>CGPA of 9.5</strong>. I am passionate about leveraging Machine Learning and Deep Learning to solve complex problems. Beyond academics, I lead the Data Science Club, organizing workshops to foster a culture of learning.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3><i class="fas fa-code"></i> Languages</h3>
+                <div class="tags">
+                    <span>Python</span>
+                    <span>R Language</span>
+                    <span>C</span>
+                    <span>MySQL</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-tools"></i> Tools & Frameworks</h3>
+                <div class="tags">
+                    <span>NumPy & Pandas</span>
+                    <span>Matplotlib</span>
+                    <span>TensorFlow/Keras</span>
+                    <span>Git & GitHub</span>
+                    <span>DevOps (Basics)</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-brain"></i> Competencies</h3>
+                <div class="tags">
+                    <span>Data Structures</span>
+                    <span>Web Development</span>
+                    <span>Problem Solving</span>
+                    <span>Critical Thinking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-grid">
+            
+            <div class="project-card">
+                <div class="project-info">
+                    <p class="status">In Progress</p>
+                    <h3>Mind Mentor App</h3>
+                    <p>An AI-Powered Mindset Monitoring & Guidance System that analyzes user inputs (text, voice, facial expressions) to provide personalized recommendations.</p>
+                    <br>
+                    <strong>Key Tech:</strong>
+                    <ul>
+                        <li>Deep Learning & NLP</li>
+                        <li>Sentiment Analysis</li>
+                        <li>Multi-modal data processing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <p class="status" style="color: #2ecc71;">Key Project</p>
+                    <h3>Stock Market Prediction</h3>
+                    <p>Built a hybrid model to predict stock trends by preprocessing data and training advanced neural networks.</p>
+                    <br>
+                    <strong>Key Tech:</strong>
+                    <ul>
+                        <li>LSTM, RNN, CNN</li>
+                        <li>TensorFlow/Keras</li>
+                        <li>Data Visualization</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="leadership">
+        <h2 class="section-title" style="color: white;">Leadership</h2>
+        <div class="container">
+            <div style="max-width: 700px; margin: 0 auto;">
+                <i class="fas fa-users" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                <h3>President of Data Science Club</h3>
+                <p>Organized Data Science Club activities including workshops, coding sessions, team projects, and events to promote learning and interest in Data Science among students.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2 class="section-title">Certifications</h2>
+        <ul class="cert-list">
+            <li><strong>Applied Data Science With Python</strong> - IBM</li>
+            <li><strong>Python Basics For Data Science</strong> - IBM</li>
+        </ul>
+    </section>
+
+    <footer id="contact">
+        <h2 class="section-title" style="color: white;">Get In Touch</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> suryachaitanyagali@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 7396492730</p>
+            <p><i class="fas fa-map-marker-alt"></i> Visakhapatnam, Andhra Pradesh</p>
+        </div>
+        <br>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/surya-chaitanya-42905829a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Sonofsatyanarayana" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <br>
+        <p>&copy; 2025 Gali Surya Chaitanya</p>
+    </footer>
+
+</body>
+</html>
